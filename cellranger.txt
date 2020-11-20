@@ -6,7 +6,7 @@
 ## 4. Extract as above, but rename the archive first , wierd numbers and characters ("-" I think can sink the whole thing). I used $ mv file1.tar.gz file2.tar.gz
 ## 5. Each lane had all the reads archived also, which is a pain. use this gunzip *.gz to unzip and then delete the origional files.do each one individually.
 ## 6. ran out of room, so copy everything to the scratch space ( check the quota with $ quota ) 
-## cp -R * /exports/cmvm/eddie/scs/groups/dferenba-seqdata /exports/eddie/scratch/s1798438
+## cp -R * /exports/cmvm/eddie/scs/groups/dferenba-seqdata /exports/eddie/scratch/sxxx
 
 ## 7. now open nova and save the script as name.sh next.
 
@@ -27,7 +27,7 @@ module load igmm/apps/cellranger/2.1.0
 module load igmm/apps/STAR/2.5.1b
 cellranger count --id=novsenuuo \
 --transcriptome=/exports/eddie/scratch/s1798438/dferenba-seqdata/refdata-cellranger-mm10-2.1.0 \
---fastqs=/exports/eddie/scratch/s1798438/dferenba-seqdata/HNM52BGX7/5_UUO \
+--fastqs=/exports/eddie/scratch/sxxx/dferenba-seqdata/HNM52BGX7/5_UUO \
 --sample=5_UUO \
 --project=HNM52BGX7 \ 
 
@@ -41,15 +41,15 @@ cellranger count --id=novsenuuo \
 ## this is the .csv for cellranger aggregate unix command but be warey of downsampling/nomralisation causing errors
 
 library_id,molecule_h5,category #fordownstreamsublabeling
-1_WT_LD,/exports/eddie/scratch/s1798438/outs/fastq_path/eosWTrun1/outs/molecule_info.h5,#catagory1abelsppearshere
+1_WT_LD,/exports/eddie/scratch/sxxx/outs/fastq_path/eosWTrun1/outs/molecule_info.h5,#catagory1abelsppearshere
 
-2_WT_POP,/exports/eddie/scratch/s1798438/outs/fastq_path/eosWTrun2/outs/molecule_info.h5
-3_IRI_LD,/exports/eddie/scratch/s1798438/outs/fastq_path/eosWTrun3/outs/molecule_info.h5
-4_IRI_POP,/exports/eddie/scratch/s1798438/outs/fastq_path/eosWTrun3/outs/molecule_info.h5 
+2_WT_POP,/exports/eddie/scratch/sxxx/outs/fastq_path/eosWTrun2/outs/molecule_info.h5
+3_IRI_LD,/exports/eddie/scratch/sxxx/outs/fastq_path/eosWTrun3/outs/molecule_info.h5
+4_IRI_POP,/exports/eddie/scratch/sxxx/outs/fastq_path/eosWTrun3/outs/molecule_info.h5 
 cellranger aggr --id=eosagg \
---csv=/exports/eddie/scratch/s1798438/aggregatecommands.csv \
+--csv=/exports/eddie/scratch/sxxx/aggregatecommands.csv \
 --normalize=mapped 
 
 
-## cp -R /exports/eddie/scratch/s1798438/oct18_senescent10x/ /exports/cmvm/datastore/scs/groups/dferenba-seqdata
+## cp -R /exports/eddie/scratch/sxxx/oct18_senescent10x/ /exports/cmvm/datastore/scs/groups/dferenba-seqdata
 
